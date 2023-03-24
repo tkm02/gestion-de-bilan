@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/comgal.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+          <a href="/">
+            <img src="/image/logo aeemci-esatic-Ramadhan-sansFond.png" alt="">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/bilan">Bilan journalier</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="chef-commission">
+        <h2 class="section-title">Chef de commission</h2>
+        <p class="info">Nom : <span id="nom">KAMBOU AXEL</span></p>
+        <p class="info">Année : <span id="annee">LICENCE 2</span></p>
+        <p class="info">Filière : <span id="filiere">SRIT 2B</span></p>
+    </section>
+
+    <section class="section-bilan-comgal">
+        <h1>BILAN DE LA COMMISSION FORNITURE ALIMENTAIRE 1</h1>
+        <div class="affiche">
+            <ul class="element">
+                <!-- <li></li>
+                <li></li> -->
+            </ul>
+        </div>
+        <form action="/comgallette" method="post">
+            <label for="tache">Tâche:</label>
+            <input type="text" id="tache" name="tache" placeholder="entre ici la tâche">
+            <label for="prix">Prix:</label>
+            <input type="number" id="prix" name="prix" placeholder="entre ici le prix de la tâche ici">
+            <input type="submit" class="btn">
+        </form>
+    </section>
+      
+</body>
+</html>
