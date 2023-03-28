@@ -18,7 +18,7 @@
         <ul class="nav-links">
           <li><a href="/">Accueil</a></li>
           <li><a href="/bilan">Bilan journalier</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <!-- <li><a href="/contact">Contact</a></li> -->
         </ul>
         <div class="burger">
           <div class="line1"></div>
@@ -27,29 +27,52 @@
         </div>
     </nav>
 
-    <section class="chef-commission">
-        <h2 class="section-title">Chef de commission</h2>
-        <p class="info">Nom : <span id="nom">KAMBOU AXEL</span></p>
-        <p class="info">Année : <span id="annee">LICENCE 2</span></p>
-        <p class="info">Filière : <span id="filiere">SRIT 2B</span></p>
-    </section>
-
-    <section class="section-bilan-comgal">
-        <h1>BILAN DE LA COMMISSION FORNITURE ALIMENTAIRE 1</h1>
-        <div class="affiche">
-            <ul class="element">
-                <!-- <li></li>
-                <li></li> -->
-            </ul>
-        </div>
-        <form action="/comgallette" method="post">
-            <label for="tache">Tâche:</label>
-            <input type="text" id="tache" name="tache" placeholder="entre ici la tâche">
+    <section class="section-achat-comgal">
+        <form action="/comgallette" method="post" class="form">
+            <label for="tache">Produit:</label>
+            <input type="text" id="tache" name="tache" placeholder="entrer ici le nom du Produit">
             <label for="prix">Prix:</label>
-            <input type="number" id="prix" name="prix" placeholder="entre ici le prix de la tâche ici">
+            <input type="number" id="prix" name="prix" placeholder="entrer ici le prix de la tâche ici">
+            <label for="commission">commission:</label>
+            <input type="text" id="commission" name="commission" placeholder="entrer le nom de votre commission">
             <input type="submit" class="btn">
         </form>
+        <table id="table">
+          <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Produits</th>
+                  <th>Commission</th>   
+                  <th>Prix</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% let total = 0 %>
+            <% for (let i = 0; i < achat.length; i++) { %>
+            <% const date = new Date(achat[i].date) %>
+            <% const day = ("0" + date.getDate()).slice(-2) %>
+            <% const month = ("0" + (date.getMonth() + 1)).slice(-2) %>
+            <% const year = date.getFullYear() %>
+            <% const formattedDate = `${day}/${month}/${year}` %>
+            <% total += achat[i].prix %>
+            <tr>
+                <td><%= formattedDate %></td>
+                <td><%= achat[i].tache %></td>
+                <td><%= achat[i].commission %></td>
+                <td><%= achat[i].prix %> FCFA</td>
+            </tr>
+            <% } %>
+            <tr>
+                <td><strong>Total :</strong> </td>
+                <td></td>
+                <td class="somme"><%= total %> FCFA</td>
+            </tr>
+        </tbody>
+      </table>
+      <button href="/bilan/pdf" id="downloadBtn">télécharger</>
     </section>
       
+    <script src="/js/form.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

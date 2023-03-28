@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<body lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/comgal.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+          <a href="/">
+            <img src="/image/logo aeemci-esatic-Ramadhan-sansFond.png" alt="">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/achat">achat journalier</a></li>
+          <!-- <li><a href="/contact">Contact</a></li> -->
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+    </nav>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Tâche</th>
+                <th>Commission</th>   
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% let total = 0 %>
+          <% for (let i = 0; i < achat.length; i++) { %>
+          <% const date = new Date(achat[i].date) %>
+          <% const day = ("0" + date.getDate()).slice(-2) %>
+          <% const month = ("0" + (date.getMonth() + 1)).slice(-2) %>
+          <% const year = date.getFullYear() %>
+          <% const formattedDate = `${day}/${month}/${year}` %>
+          <% total += achat[i].prix %>
+          <tr>
+              <td><%= formattedDate %></td>
+              <td><%= achat[i].tache %></td>
+              <td><%= achat[i].commission %></td>
+              <td><%= achat[i].prix %> FCFA</td>
+          </tr>
+          <% } %>
+          <tr>
+              <td><strong>Total :</strong> </td>
+              <td></td>
+              <td class="somme"><%= total %> FCFA</td>
+          </tr>
+      </tbody>
+    </table>
+    <button href="/bilan/pdf" id="downloadBtn">télécharger</>
+
+      <script src="/js/form.js" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+    

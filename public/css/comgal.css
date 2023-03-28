@@ -65,3 +65,38 @@ form label{
     background-color: #f1f1f1;
     color: #0B6623;
 }
+table {
+  margin: auto;
+  border-collapse: collapse;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 10px #999999;
+  width: 80%;
+  font-size: 1.2em;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #CCCCCC;
+}
+th {
+  background-color: #EEEEEE;
+}
+.total {
+  margin-top: 20px;
+  text-align: right;
+  font-weight: bold;
+}
+.somme{
+  color: #f7931e;
+}
+#downloadBtn{
+  /* border: 2px solid; */
+  padding: 10px;
+  margin: 0 auto;
+  text-decoration: none;
+  background-color: #999999;
+  /* color: #0B6623; */
+  font-size: 1.2em;
+  color: #333;
+  cursor: pointer;
+}
